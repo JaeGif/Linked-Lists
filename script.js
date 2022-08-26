@@ -36,10 +36,29 @@ class LinkedList {
     }
     return count;
   }
+  head() {
+    return this.head;
+  }
+  tail() {
+    let tail = this.head;
+    while (tail.next !== null) {
+      tail = tail.next;
+    }
+    return tail;
+  }
+  at(index) {
+    let currentNode = this.head;
+    let eleIndex = 0;
+    while (eleIndex < index) {
+      currentNode = currentNode.next;
+      eleIndex++;
+    }
+    return currentNode;
+  }
 }
 
 // Example Linked List
 
 let instantiatedLinkedList = new LinkedList(new ListNode(15));
 instantiatedLinkedList.prepend(5);
-console.log(instantiatedLinkedList.size());
+console.log(instantiatedLinkedList.at(3));
