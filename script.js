@@ -14,7 +14,6 @@ class LinkedList {
       return this.head;
     }
     let currentNode = this.head;
-    console.log(currentNode);
     while (currentNode.next !== null) {
       currentNode = currentNode.next;
     }
@@ -28,10 +27,19 @@ class LinkedList {
     this.head = newHead;
     return this.head;
   }
+  size() {
+    let currentNode = this.head;
+    let count = 1;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
+      count++;
+    }
+    return count;
+  }
 }
 
 // Example Linked List
 
 let instantiatedLinkedList = new LinkedList(new ListNode(15));
 instantiatedLinkedList.prepend(5);
-console.log(instantiatedLinkedList.head);
+console.log(instantiatedLinkedList.size());
