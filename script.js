@@ -22,10 +22,16 @@ class LinkedList {
 
     return this.head;
   }
+  prepend(value) {
+    let newHead = new ListNode(value);
+    newHead.next = this.head;
+    this.head = newHead;
+    return this.head;
+  }
 }
 
 // Example Linked List
 
 let instantiatedLinkedList = new LinkedList(new ListNode(15));
-instantiatedLinkedList.append(5).append(200);
+instantiatedLinkedList.prepend(5);
 console.log(instantiatedLinkedList.head);
