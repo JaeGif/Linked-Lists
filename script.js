@@ -124,7 +124,7 @@ class LinkedList {
       stringDiagram += `( ${currentNode.data} ) -> `;
       currentNode = currentNode.next;
     }
-    return (stringDiagram += null);
+    return console.log((stringDiagram += null));
   }
   insertAt(value, index) {
     // insert value at the specific index
@@ -176,4 +176,26 @@ class LinkedList {
     currentNode.next = null;
     return;
   }
+  reverse() {
+    // reverse the order of the nodes in the list
+    let tail = this.tail();
+    let currentNode = this.head;
+    let previousNode = null;
+    let nextNode = null;
+
+    while (currentNode !== null) {
+      nextNode = currentNode.next;
+      currentNode.next = previousNode;
+      previousNode = currentNode;
+      currentNode = nextNode;
+    }
+    this.head = tail;
+    return;
+  }
 }
+
+let instanceOfList = new LinkedList(new ListNode(0));
+
+instanceOfList.toString();
+instanceOfList.reverse();
+instanceOfList.toString();
