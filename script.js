@@ -193,9 +193,3 @@ class LinkedList {
     return;
   }
 }
-
-let instanceOfList = new LinkedList(new ListNode(0));
-
-instanceOfList.toString();
-instanceOfList.reverse();
-instanceOfList.toString();
