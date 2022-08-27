@@ -109,15 +109,19 @@ class LinkedList {
     }
     return null;
   }
+  toString() {
+    // represents to linked list as a string diagram for easy visualization
+    let stringDiagram = '';
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      stringDiagram += `( ${currentNode.data} ) -> `;
+      currentNode = currentNode.next;
+    }
+    return (stringDiagram += null);
+  }
 }
 
 // Example Linked List
 
 let instantiatedLinkedList = new LinkedList(new ListNode(1));
-instantiatedLinkedList.append(2);
-instantiatedLinkedList.append(3);
-instantiatedLinkedList.append(4);
-instantiatedLinkedList.append(5);
-instantiatedLinkedList.append(6);
-instantiatedLinkedList.append(7);
-console.log(instantiatedLinkedList.find(1));
+console.log(instantiatedLinkedList.toString());
