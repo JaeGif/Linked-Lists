@@ -93,6 +93,22 @@ class LinkedList {
     }
     return false;
   }
+  find(value) {
+    // returns the index of the node containing value, or null if not found.
+    if (!this.head) {
+      return null;
+    }
+    let currentNode = this.head;
+    let index = 0;
+    while (currentNode !== null) {
+      if (value === currentNode.data) {
+        return index;
+      }
+      currentNode = currentNode.next;
+      index++;
+    }
+    return null;
+  }
 }
 
 // Example Linked List
@@ -104,5 +120,4 @@ instantiatedLinkedList.append(4);
 instantiatedLinkedList.append(5);
 instantiatedLinkedList.append(6);
 instantiatedLinkedList.append(7);
-instantiatedLinkedList.pop();
-console.log(instantiatedLinkedList.contains(7));
+console.log(instantiatedLinkedList.find(1));
