@@ -119,9 +119,41 @@ class LinkedList {
     }
     return (stringDiagram += null);
   }
+  insertAt(value, index) {
+    // insert value at the specific index
+    if (index === 0) {
+      this.prepend(value);
+    }
+
+    let currentNode = this.head.next;
+    let previousNode = this.head;
+    let eleIndex = 1;
+
+    while (previousNode.next !== null) {
+      if (eleIndex === index) {
+        let newNode = new ListNode(value);
+        previousNode.next = newNode;
+        newNode.next = currentNode;
+        return;
+      }
+      currentNode = currentNode.next;
+      previousNode = previousNode.next;
+      eleIndex++;
+    }
+    if (eleIndex === index) {
+      this.append(value);
+    }
+    return;
+  }
 }
 
 // Example Linked List
 
-let instantiatedLinkedList = new LinkedList(new ListNode(1));
+let instantiatedLinkedList = new LinkedList(new ListNode(0));
+instantiatedLinkedList.append(1);
+instantiatedLinkedList.append(2);
+instantiatedLinkedList.append(3);
+instantiatedLinkedList.append(4);
+instantiatedLinkedList.append(5);
+instantiatedLinkedList.insertAt(15, 0);
 console.log(instantiatedLinkedList.toString());
