@@ -9,6 +9,7 @@ class LinkedList {
     this.head = head;
   }
   append(value) {
+    // inserts a new element at the end
     if (!this.head) {
       this.head = new ListNode(value);
       return this.head;
@@ -22,12 +23,14 @@ class LinkedList {
     return this.head;
   }
   prepend(value) {
+    // inserts a new element at the head
     let newHead = new ListNode(value);
     newHead.next = this.head;
     this.head = newHead;
     return this.head;
   }
   size() {
+    // returns the length of the list
     let currentNode = this.head;
     let count = 1;
     while (currentNode.next !== null) {
@@ -37,9 +40,11 @@ class LinkedList {
     return count;
   }
   head() {
+    // returns the first element of the list
     return this.head;
   }
   tail() {
+    // returns the last element of the list
     let tail = this.head;
     while (tail.next !== null) {
       tail = tail.next;
@@ -47,6 +52,7 @@ class LinkedList {
     return tail;
   }
   at(index) {
+    // returns the data at an index
     let currentNode = this.head;
     let eleIndex = 0;
     while (eleIndex < index) {
@@ -56,6 +62,7 @@ class LinkedList {
     return currentNode;
   }
   pop() {
+    // removes last element from the list
     if (!this.head) {
       return null;
     }
@@ -170,15 +177,3 @@ class LinkedList {
     return;
   }
 }
-
-// Example Linked List
-
-let instantiatedLinkedList = new LinkedList(new ListNode(0));
-instantiatedLinkedList.append(1);
-instantiatedLinkedList.append(2);
-instantiatedLinkedList.append(3);
-instantiatedLinkedList.append(4);
-instantiatedLinkedList.append(5);
-instantiatedLinkedList.removeAt(6);
-
-console.log(instantiatedLinkedList.toString());
