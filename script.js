@@ -75,8 +75,34 @@ class LinkedList {
     tail = null;
     return this.head;
   }
+  contains(value) {
+    // returns true if the passed in value is in the list and otherwise returns false.
+    let currentNode = this.head;
+    if (!this.head) {
+      return false;
+    }
+    if (value === this.head.data) {
+      return true;
+    }
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
+
+      if (value === currentNode.data) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 // Example Linked List
 
 let instantiatedLinkedList = new LinkedList(new ListNode(1));
+instantiatedLinkedList.append(2);
+instantiatedLinkedList.append(3);
+instantiatedLinkedList.append(4);
+instantiatedLinkedList.append(5);
+instantiatedLinkedList.append(6);
+instantiatedLinkedList.append(7);
+instantiatedLinkedList.pop();
+console.log(instantiatedLinkedList.contains(7));
