@@ -145,6 +145,30 @@ class LinkedList {
     }
     return;
   }
+  removeAt(index) {
+    // removes the node at the given index
+    let eleIndex = 1;
+    if (index === 0) {
+      let currentNode = this.head;
+      currentNode = null;
+      this.head = this.head.next;
+      return;
+    }
+    let previousNode = this.head;
+    let currentNode = this.head.next;
+    while (eleIndex < index) {
+      currentNode = currentNode.next;
+      previousNode = previousNode.next;
+      eleIndex++;
+    }
+    if (currentNode === null) {
+      previousNode.next = currentNode;
+      return;
+    }
+    previousNode.next = currentNode.next;
+    currentNode.next = null;
+    return;
+  }
 }
 
 // Example Linked List
@@ -155,5 +179,6 @@ instantiatedLinkedList.append(2);
 instantiatedLinkedList.append(3);
 instantiatedLinkedList.append(4);
 instantiatedLinkedList.append(5);
-instantiatedLinkedList.insertAt(15, 0);
+instantiatedLinkedList.removeAt(6);
+
 console.log(instantiatedLinkedList.toString());
