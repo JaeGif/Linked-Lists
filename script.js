@@ -55,10 +55,28 @@ class LinkedList {
     }
     return currentNode;
   }
+  pop() {
+    if (!this.head) {
+      return null;
+    }
+
+    if (this.head.next === null) {
+      this.head = null;
+      return;
+    }
+    let tail = this.head.next;
+    let secondToTail = this.head;
+    while (tail.next !== null) {
+      tail = tail.next;
+      secondToTail = secondToTail.next;
+    }
+
+    secondToTail.next = null;
+    tail = null;
+    return this.head;
+  }
 }
 
 // Example Linked List
 
-let instantiatedLinkedList = new LinkedList(new ListNode(15));
-instantiatedLinkedList.prepend(5);
-console.log(instantiatedLinkedList.at(3));
+let instantiatedLinkedList = new LinkedList(new ListNode(1));
