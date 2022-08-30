@@ -176,6 +176,14 @@ class LinkedList {
     currentNode.next = null;
     return;
   }
+  removeKnownNode(node) {
+    // if given a node it removes that node from the list
+    if (node.data !== undefined && node.next !== undefined) {
+      node.data = node.next.data;
+      node.next = node.next.next;
+      node = null;
+    }
+  }
   reverse() {
     // reverse the order of the nodes in the list
     let tail = this.tail();
